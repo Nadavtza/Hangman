@@ -1,0 +1,46 @@
+body {
+  margin: 100%;
+  align-items: center;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.board {
+  grid-area: board;
+
+}
+
+.result {
+  grid-area: result;
+}
+
+.header {
+  grid-area: header;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-auto-flow: column ;
+  grid-template-areas:
+  ".....header......"
+  "sidebar board result"
+  ".......footer......."
+}
+
+.box {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 150%;
+}
+
+.footer {
+  background-color: #999;
+}

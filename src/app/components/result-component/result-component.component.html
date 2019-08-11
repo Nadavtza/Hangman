@@ -1,0 +1,9 @@
+<div  [hidden]="!isGameEnded">
+
+  <img src={{resultPic}}>
+
+   <h2>{{resultDescription}}</h2>
+
+   <p-button id="againButton" label="Again" (onClick)="startNewGame()" ></p-button>
+
+</div>

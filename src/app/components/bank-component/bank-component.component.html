@@ -1,0 +1,9 @@
+
+<div id="bank">
+
+        <button pButton type="button" class="ui-button-raised ui-button-rounded"
+        *ngFor="let letter of letters ; trackBy:"
+        [label]="letter.value"  [value]="letter.value"  (click)="selectLetter(letter) " [disabled]= "letter.isDisabled"></button>
+
+</div>
+

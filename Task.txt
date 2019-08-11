@@ -1,0 +1,13 @@
+Tasks :
+
+1) Installation and configuration
+
+2) Layout
+
+3) Create Headline , Bank , Board , progress and result components
+
+4) Implement components functionality
+
+5) Create game Service
+
+6) Add CSS to components

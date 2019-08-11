@@ -1,0 +1,16 @@
+
+<div id="board">
+    <div class="sentence" *ngFor="let word of sentence ; trackBy:" >
+      <div class="wordBox" *ngFor="let letter of word ; trackBy:" [style.color]="letter.color" >
+
+             <ng-container *ngIf="!letter.isHidden; else elseTemplate" >
+                <u>{{letter.value}}</u>
+            </ng-container>
+            <ng-template #elseTemplate >
+              <u>{{'&nbsp;'}}</u>
+            </ng-template>
+
+      </div>
+    </div>
+</div>
+

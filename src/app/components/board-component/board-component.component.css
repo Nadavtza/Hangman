@@ -1,0 +1,14 @@
+
+.wordBox {
+  display: grid;
+  grid-auto-flow: column ;
+  font-size: 200%;
+  color: black;
+}
+
+.sentence {
+  white-space: normal;
+  display: grid;
+  grid-auto-flow: column ;
+
+}
