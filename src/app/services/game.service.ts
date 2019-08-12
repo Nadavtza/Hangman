@@ -102,7 +102,7 @@ export class GameService {
 
     const sentence: Letter[][] = this.composeSentence(randomMovie);
 
-    this.setMatchCounter( randomMovieFilterLength - this.getPercentRoundDown(25 , randomMovieFilterLength)) ;
+    this.setMatchCounter( randomMovieFilterLength - this.displayLetters.length) ;
     console.log('setMatchCounter : matchCounter value  = ' + this.matchCounter) ;
     return sentence ;
   }
@@ -117,7 +117,7 @@ export class GameService {
     // Create a new sentence
     const sentence: Letter[][] = this.initSentence(movieNameWords);
 
-    this.setSentenceLettersToDisplay(sentence , movieName.replace(/\s+/g, '')) ;
+    this.setSentenceLettersToDisplay(sentence , movieName.replace(/\s+/g, '').toUpperCase()) ;
 
     this.printSentence(sentence);
 
@@ -132,6 +132,8 @@ export class GameService {
         return ;
     }
 
+    console.log ('setSentenceLettersToDisplay : movieName length ' + movieName.length) ;
+
     // Find the number of letters to show
     let displayLettersCounter = this.getPercentRoundDown(25 , movieName.length) ;
     console.log ('setSentenceLettersToDisplay : displayLettersCounter ' + displayLettersCounter) ;
@@ -140,24 +142,27 @@ export class GameService {
     let display = '' ;
 
     // Set sentence letters to display
-    while (displayLettersCounter > 0 ) {
+    while (displayLettersCounter > 0 && currMovieName.length > 0) {
 
       // Random a char from the movie name
-      const randomMovieIndex: number = Math.floor(Math.random() * currMovieName.length) ;
-      const char: string = movieName.charAt(randomMovieIndex);
+      const randomCharIndex: number = Math.floor(Math.random() * currMovieName.length) ;
+      const char: string = currMovieName.charAt(randomCharIndex);
 
       // Verify number of char occurrences do not exceed displayLettersCounter
-      if ( this.occurrences(movieName, char, false)  > displayLettersCounter) {
+      if ( this.occurrences(movieName , char , false)  > displayLettersCounter) {
+        console.log('char has to many occurrences: skip ' + char);
+        currMovieName = currMovieName.replace(char , '');
+
         continue ;
       }
 
-      display += char ;
 
        // Update sentence to show this char
       for (const word of sentence) {
           for (const letter of word) {
-            if (letter.value === char) {
+            if (letter.value.toUpperCase() === char) {
               letter.isHidden = false ;
+              display += char ;
               displayLettersCounter-- ;
             }
           }
