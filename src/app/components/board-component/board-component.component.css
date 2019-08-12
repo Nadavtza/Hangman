@@ -1,14 +1,25 @@
 
-.wordBox {
-  display: grid;
-  grid-auto-flow: column ;
-  font-size: 200%;
-  max-width: 100%;
-  color: black;
+.wrappper{
+  width:100%;
+  margin:0 auto;
+  justify-content: center;
 }
 
 .sentence {
-  white-space: normal;
-  display: grid;
-  grid-auto-flow: column ;
+  padding: 1% ;
+  display: flex;
+  grid-auto-flow: row ;
+
 }
+
+ .wordBox {
+  float:left;
+  margin: 0 10px 10px 10px;
+  list-style:none;
+  padding-top:10px;
+  cursor:pointer;
+  border-bottom: solid 2px black;
+  font-size: 250%;
+}
+
+

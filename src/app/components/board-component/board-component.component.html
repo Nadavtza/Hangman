@@ -1,16 +1,17 @@
+<div class="wrappper" fxLayoutAlign="space around start">
+  <div class="sentence" *ngFor="let word of sentence ; trackBy:" >
+    <li class="wordBox" *ngFor="let letter of word ; trackBy:" [style.color]="letter.color" >
 
-<div id="board" fxLayoutAlign="space arount start">
-    <div class="sentence" *ngFor="let word of sentence ; trackBy:" >
-      <div class="wordBox" *ngFor="let letter of word ; trackBy:" [style.color]="letter.color" >
+          <ng-container clas="letter"  *ngIf="!letter.isHidden; else elseTemplate" >
+             {{letter.value}}
+          </ng-container>
+          <ng-template clas="letter" #elseTemplate >
+            {{'&nbsp;'}}
+          </ng-template>
 
-             <ng-container *ngIf="!letter.isHidden; else elseTemplate" >
-                <u>{{letter.value}}</u>
-            </ng-container>
-            <ng-template #elseTemplate >
-              <u>{{'&nbsp;'}}</u>
-            </ng-template>
+      </li>
 
-      </div>
-    </div>
+  </div>
 </div>
+
 
