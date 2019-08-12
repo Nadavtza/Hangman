@@ -3,6 +3,7 @@
   display: grid;
   grid-auto-flow: column ;
   font-size: 200%;
+  max-width: 100%;
   color: black;
 }
 
@@ -10,5 +11,4 @@
   white-space: normal;
   display: grid;
   grid-auto-flow: column ;
-
 }
